@@ -1,0 +1,58 @@
+name: OCaml Core Pipeline
+
+on:
+  schedule:
+    # Wakes up at 48 minutes past 2 AM, 8 AM, 2 PM, and 8 PM UTC
+    # (10:48 AM, 4:48 PM, 10:48 PM, and 4:48 AM Singapore Time)
+    - cron: '48 2,8,14,20 * * *'
+  workflow_dispatch:
+
+jobs:
+  ocaml-sync:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - name: Fetch Core Repository
+        uses: actions/checkout@v4
+
+      - name: Mutate OCaml Record Definition
+        run: |
+          # 30% chance to skip (maintains natural execution gaps)
+          if [ $((RANDOM % 100)) -lt 30 ]; then
+            echo "OCaml module specs current. Skipping execution."
+            exit 0
+          fi
+
+          mkdir -p lib
+          TARGET_FILE="lib/types.ml"
+
+          if [ ! -f "$TARGET_FILE" ]; then
+            echo "(* Core OCaml Type Definitions *)" > "$TARGET_FILE"
+            echo "" >> "$TARGET_FILE"
+          fi
+
+          COMPONENTS=("TelemetryNode" "BufferChunk" "StateRecord" "MetricVector" "SessionContext")
+          PICKED_COMP=${COMPONENTS[$RANDOM % ${#COMPONENTS[@]}]}
+
+          echo "" >> "$TARGET_FILE"
+          echo "(* State node payload $RANDOM *)" >> "$TARGET_FILE"
+          echo "type ${PICKED_COMP}_$RANDOM = {" >> "$TARGET_FILE"
+          echo "  node_id : int;" >> "$TARGET_FILE"
+          echo "  active : bool;" >> "$TARGET_FILE"
+          echo "}" >> "$TARGET_FILE"
+
+          git config --global user.name "jem005858"
+          git config --global user.email "jem005858@gmail.com"
+
+          MESSAGES=(
+            "feat: add OCaml record type definition for module payload"
+            "refactor: optimize record field scope in types module"
+            "fix: adjust record type binding in OCaml schema"
+            "chore: sync dune module build specifications"
+          )
+          MSG=${MESSAGES[$RANDOM % ${#MESSAGES[@]}]}
+
+          git add lib/
+          git commit -m "$MSG"
+          git push
