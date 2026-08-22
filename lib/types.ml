@@ -372,3 +372,9 @@ type BufferChunk_6169 = {
   node_id : int;
   active : bool;
 }
+
+(* State node payload 6118 *)
+type SessionContext_21109 = {
+  node_id : int;
+  active : bool;
+}
