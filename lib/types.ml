@@ -498,3 +498,9 @@ type MetricVector_753 = {
   node_id : int;
   active : bool;
 }
+
+(* State node payload 5263 *)
+type TelemetryNode_8093 = {
+  node_id : int;
+  active : bool;
+}
