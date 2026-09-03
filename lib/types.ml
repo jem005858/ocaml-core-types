@@ -516,3 +516,9 @@ type SessionContext_807 = {
   node_id : int;
   active : bool;
 }
+
+(* State node payload 1636 *)
+type TelemetryNode_21111 = {
+  node_id : int;
+  active : bool;
+}
