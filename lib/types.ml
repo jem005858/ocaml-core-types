@@ -570,3 +570,9 @@ type TelemetryNode_25076 = {
   node_id : int;
   active : bool;
 }
+
+(* State node payload 17714 *)
+type StateRecord_27077 = {
+  node_id : int;
+  active : bool;
+}
