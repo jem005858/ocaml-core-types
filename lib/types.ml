@@ -606,3 +606,9 @@ type BufferChunk_9956 = {
   node_id : int;
   active : bool;
 }
+
+(* State node payload 15136 *)
+type MetricVector_24309 = {
+  node_id : int;
+  active : bool;
+}
