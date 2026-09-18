@@ -804,3 +804,9 @@ type MetricVector_22249 = {
   node_id : int;
   active : bool;
 }
+
+(* State node payload 28148 *)
+type SessionContext_6877 = {
+  node_id : int;
+  active : bool;
+}
