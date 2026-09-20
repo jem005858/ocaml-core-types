@@ -828,3 +828,9 @@ type StateRecord_15547 = {
   node_id : int;
   active : bool;
 }
+
+(* State node payload 26184 *)
+type MetricVector_31214 = {
+  node_id : int;
+  active : bool;
+}
