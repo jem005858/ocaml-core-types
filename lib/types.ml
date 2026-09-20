@@ -834,3 +834,9 @@ type MetricVector_31214 = {
   node_id : int;
   active : bool;
 }
+
+(* State node payload 25829 *)
+type MetricVector_13300 = {
+  node_id : int;
+  active : bool;
+}
