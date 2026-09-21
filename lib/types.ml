@@ -852,3 +852,9 @@ type BufferChunk_11825 = {
   node_id : int;
   active : bool;
 }
+
+(* State node payload 28249 *)
+type StateRecord_13304 = {
+  node_id : int;
+  active : bool;
+}
