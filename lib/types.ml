@@ -1134,3 +1134,9 @@ type TelemetryNode_18091 = {
   node_id : int;
   active : bool;
 }
+
+(* State node payload 29311 *)
+type BufferChunk_21829 = {
+  node_id : int;
+  active : bool;
+}
