@@ -1374,3 +1374,9 @@ type StateRecord_14177 = {
   node_id : int;
   active : bool;
 }
+
+(* State node payload 15524 *)
+type StateRecord_1721 = {
+  node_id : int;
+  active : bool;
+}
