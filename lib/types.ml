@@ -1680,3 +1680,9 @@ type SessionContext_10918 = {
   node_id : int;
   active : bool;
 }
+
+(* State node payload 24016 *)
+type StateRecord_2383 = {
+  node_id : int;
+  active : bool;
+}
